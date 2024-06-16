@@ -20,3 +20,38 @@ Data Verification:
 
 After cleaning and standardizing the data, I'll verify the changes to ensure accuracy and completeness.
 This includes checking for any remaining inconsistencies or errors and validating the data against the original source or business requirements.
+
+SQL Project Roadmap: Data Cleaning for layoffs Dataset Roadmap 
+
+1. Remove Duplicates
+   
+Identified duplicates based on company, location, industry, etc.
+Deleted duplicates from the layoffs table using a staging table approach due to MySQL constraints on deleting directly from CTEs.
+
+2. Standardize Data and Fix Errors
+   
+Trimmed leading and trailing spaces from the company column using TRIM().
+Standardized the industry column:
+Updated industry names to 'Crypto' for consistency (Crypto Currency to Crypto).
+Standardized the country column:
+Removed trailing periods from country names.
+Converted the date column to a consistent date format ('%m/%d/%Y').
+
+3. Handle Null Values
+Identified and handled null or blank values:
+Populated null values in the industry column where possible by matching with non-null values from the same company.
+Set blank values in the industry column to null to facilitate easier handling.
+
+4. Remove Unnecessary Columns and Rows
+   
+Removed rows where total_laid_off and percentage_laid_off are both null.
+Deleted rows containing useless data that cannot be utilized further.
+Project Outcome
+Cleaned and standardized the layoffs dataset (layoffs2 table) for further analysis.
+Ensured consistency in data formats and completeness by handling null values and fixing errors.
+
+Next Steps
+
+Perform exploratory data analysis (EDA) to gain insights into layoff trends by industry, location, and time.
+
+Create visualizations and reports based on cleaned data to communicate findings effectively.
